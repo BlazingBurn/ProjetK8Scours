@@ -1,16 +1,16 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
   name: flask-deployment-dn
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: flask
+      app: flask-dn
   template:
     metadata:
       labels:
-        app: flask
+        app: flask-dn
     spec:
       containers:
       - name: flask-container-dn
