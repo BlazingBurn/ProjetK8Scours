@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-deployment-dn
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flaskdn
+  template:
+    metadata:
+      labels:
+        app: flaskdn
+    spec:
+      containers:
+      - name: flask-container-dn
+        image: torbthemagni/flask-actions-project
+        ports:
+        - containerPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sql-server-deployment-dn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlserverdn
+  template:
+    metadata:
+      labels:
+        app: sqlserverdn
+    spec:
+      containers:
+      - name: sql-server-container-dn
+        image: torbthemagni/sql-server-actions-project
+        ports:
+        - containerPort: 1433

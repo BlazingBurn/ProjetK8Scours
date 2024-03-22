@@ -35,16 +35,28 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-    - name: Build and push
-      uses: docker/build-push-action@v5
-      with:
-        context: .
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-actions-project:latest
-
-    # Appliquer le déploiement sur Kubernetes
-    - name: Deploy to Kubernetes
+    
+    - name: Build and push image
       run: |
-        kubectl apply -f deployment.yaml
-        kubectl apply -f service.yaml
+        docker-compose build
+        docker-compose push
+    
+    # - name: Build and push
+    #   uses: docker/build-push-action@v5
+    #   with:
+    #     context: ./falsk_app
+    #     push: true
+    #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-actions-project:latest
+
+    # - name: Build and push
+    #   uses: docker/build-push-action@v5
+    #   with:
+    #     context: ./sql_server
+    #     push: true
+    #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/sql-server-actions-project:latest
+
+    # # Appliquer le déploiement sur Kubernetes
+    # - name: Deploy to Kubernetes
+    #   run: |
+    #     kubectl apply -f deployment-update.yaml
+    #     kubectl apply -f service-update.yaml
