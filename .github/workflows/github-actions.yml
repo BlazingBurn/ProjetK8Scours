@@ -32,7 +32,7 @@ jobs:
     - name: Azure Login
       uses: azure/login@v2
       with:
-        creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION }}","tenantId":"${{ secrets.tenantID }}"}'
+        creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
 
     - name: Checkout GitCode
       uses: actions/checkout@v3
