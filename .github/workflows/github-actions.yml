@@ -53,9 +53,15 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-actions-project:latest
   
+    - name: Install Kompose
+      run: |
+        curl -L https://github.com/kubernetes/kompose/releases/download/v1.24.0/kompose-linux-amd64 -o kompose
+        sudo mv ./kompose /usr/local/bin/kompose
+        sudo chmod +x /usr/local/bin/kompose
+
     # Appliquer le déploiement sur Kubernetes
     - name: Deploy to Kubernetes
       run: |
-        kompose up --server https://hitema-dns-tvrhbknj.hcp.swedencentral.azmk8s.io:443/
+        kompose up --server ${{ secrets.KOMPOSE_SERVER }}
         kubectl apply -f deployment.yaml 
         kubectl apply -f service.yaml 
