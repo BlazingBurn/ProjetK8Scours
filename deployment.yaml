@@ -13,7 +13,7 @@ spec:
         app: flaskdn
     spec:
       containers:
-      - name: flask-container-dn
+      - name: flaskdn
         image: torbthemagni/flask-actions-project
         # imagePullPolicy: "Always"
         ports:

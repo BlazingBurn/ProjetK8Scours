@@ -49,7 +49,7 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/flask-actions-project:latest
 
     # Appliquer le déploiement sur Kubernetes
-        # kubectl rollout restart deployment flask-deployment-dn
+        # kubectl rollout restart deployment flask-deployment-dn || kubectl apply -f deployment.yaml
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f deployment.yaml
