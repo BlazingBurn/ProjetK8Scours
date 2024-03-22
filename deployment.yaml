@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   name: flask-deployment-dn
+  labels:
+    app.kubernetes.io/name: flask-dn
 spec:
   replicas: 3
   selector:

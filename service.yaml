@@ -10,4 +10,4 @@ spec:
   - name: flask-service-port
     protocol: TCP
     port: 52375
-    targetPort: 5000
+    targetPort: flaskwebsvc-dn
