@@ -17,3 +17,4 @@ spec:
         image: torbthemagni/flask-actions-project
         ports:
         - containerPort: 5000
+      restartPolicy: Always
