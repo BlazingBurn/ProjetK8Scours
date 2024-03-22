@@ -30,6 +30,6 @@ spec:
       - path: /
         backend:
           service:
-            name: canary-service
+            name: flask-service-dn
             port:
               number: 80
