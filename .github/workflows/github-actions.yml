@@ -18,9 +18,7 @@ jobs:
     # Connexion à Azure
     - name: Azure Login
       run: |  
-        az login --service-principal -u ${{ secrets.appID }} -p ${{ secrets.secret }} --tenant ${{ secrets.tenantID }}
-        az account set --subscription ${{ secrets.SUBSCRIPTION }}
-        az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
+        az login --service-principal  --allow-no-subscription -u ${{ secrets.appID }} -p ${{ secrets.secret }} --tenant ${{ secrets.tenantID }}
 
     - name: Checkout GitCode
       uses: actions/checkout@v3
