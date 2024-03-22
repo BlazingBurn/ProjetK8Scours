@@ -19,7 +19,6 @@ jobs:
     - name: Azure Login
       run: |  
         az login --service-principal  --allow-no-subscription -u ${{ secrets.appID }} -p ${{ secrets.secret }} --tenant ${{ secrets.tenantID }}
-        az account set --subscription d18efcbe-caa9-4004-ac2c-7312261e11de
         az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
 
     - name: Checkout GitCode
