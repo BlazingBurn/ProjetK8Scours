@@ -4,6 +4,7 @@ services:
 
   # Service du backend SQL Server
   sql-server-backend:
+    image: torbthemagni/sql-server-actions-project:latest
     build:
       context: ./sql_server
     environment:
@@ -17,6 +18,7 @@ services:
 
   # Service du frontend Flask
   flask-frontend:
+    image: torbthemagni/flask-actions-web-project:latest
     build:
       context: ./flask_app
     ports:

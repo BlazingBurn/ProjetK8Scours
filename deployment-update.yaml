@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-container-dn
-        image: torbthemagni/flask-actions-project
+        image: torbthemagni/flask-actions-web-project
         ports:
         - containerPort: 5000
 ---
@@ -37,3 +37,8 @@ spec:
         image: torbthemagni/sql-server-actions-project
         ports:
         - containerPort: 1433
+        env:
+        - name: SA_PASSWORD
+          value: abcDEF123#
+        - name: MSSQL_PID
+          value: Developer
