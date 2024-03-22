@@ -23,16 +23,16 @@ jobs:
     #     # az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
 
     # Connexion à Azure
-    - name: Azure Login
-      run: |  
-        az login --service-principal -u ${{ secrets.appID }} -p ${{ secrets.secret }} --tenant ${{ secrets.tenantID }}
-        # az account set --subscription ${{ secrets.SUBSCRIPTION }}
-        # az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
-
     # - name: Azure Login
-    #   uses: azure/login@v2
-    #   with:
-    #     creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION }}","tenantId":"${{ secrets.tenantID }}"}'
+    #   run: |  
+    #     az login --service-principal -u ${{ secrets.appID }} -p ${{ secrets.secret }} --tenant ${{ secrets.tenantID }}
+    #     # az account set --subscription ${{ secrets.SUBSCRIPTION }}
+    #     # az aks get-credentials --resource-group hitema_kube --name hitema --overwrite-existing
+
+    - name: Azure Login
+      uses: azure/login@v2
+      with:
+        creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION }}","tenantId":"${{ secrets.tenantID }}"}'
 
     - name: Checkout GitCode
       uses: actions/checkout@v3
