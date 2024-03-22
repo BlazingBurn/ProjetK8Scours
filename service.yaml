@@ -11,3 +11,25 @@ spec:
     port: 80
     targetPort: 5000
   type: LoadBalancer
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: canary-ingress
+  label:
+    app: flaskdn
+  annotations:
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "20"
+spec:
+  rules:
+  - host: example.com
+  - http:
+      paths:
+      - path: /
+        backend:
+          service:
+            name: canary-service
+            port:
+              number: 80

@@ -51,5 +51,6 @@ jobs:
     # Appliquer le déploiement sur Kubernetes
     - name: Deploy to Kubernetes
       run: |
+        kubectl rollout restart deployment flask-deployment-dn
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
