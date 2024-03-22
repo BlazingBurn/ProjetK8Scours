@@ -63,5 +63,7 @@ jobs:
     - name: Deploy to Kubernetes
       run: |
         # kubectl --server ${{ secrets.KOMPOSE_SERVER }}
-        kubectl apply -f deployment.yaml --server ${{ secrets.KOMPOSE_SERVER }}
-        kubectl apply -f service.yaml --server ${{ secrets.KOMPOSE_SERVER }}
+        kubectl version --client
+        kubectl get pods
+        kubectl apply -f deployment.yaml
+        kubectl apply -f service.yaml
