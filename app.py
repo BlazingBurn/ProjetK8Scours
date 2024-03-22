@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     ip = request.host.split(':')[0]
-    return f'Hello, Poulet! Server IP: {ip}'
+    return f'Hello, Flask! Server IP: {ip}'
 
 # Endpoint GET
 @app.route('/get', methods=['GET'])

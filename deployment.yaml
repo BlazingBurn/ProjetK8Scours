@@ -13,8 +13,29 @@ spec:
         app: flaskdn
     spec:
       containers:
-      - name: flaskdn
+      - name: flask-container-dn
         image: torbthemagni/flask-actions-project
         # imagePullPolicy: "Always"
         ports:
         - containerPort: 5000
+
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: app-canary-dn
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: flaskdn
+#       version: canary
+#   template:
+#     metadata:
+#       labels:
+#         app: flaskdn
+#         version: canary
+#     spec:
+#       containers:
+#       - name: flask-container-dn
+#         image: torbthemagni/flask-actions-project:latest
