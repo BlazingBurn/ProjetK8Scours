@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-container-dn
-        image: torbthemagni/flask-actions-project:latest
+        image: torbthemagni/flask-actions-project
         ports:
         - containerPort: 7897
+          name: flask-web-svc-dn
