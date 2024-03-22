@@ -26,6 +26,7 @@ jobs:
     - name: Azure Login
       run: |  
         az login -u ${{ secrets.appID }} --service-principal -p ${{ secrets.secret }} --tenant ${{ secrets.tenantID }}
+        az aks get-credentials --resource-group ${{ secrets.RESOURCE_GROUP }} --name ${{ secrets.NAME_CRED }} --overwrite-existing
     # - name: Azure Login
     #   uses: azure/login@v2
     #   with:
@@ -60,9 +61,9 @@ jobs:
     #     sudo chmod +x /usr/local/bin/kompose
 
     # Appliquer le déploiement sur Kubernetes
+    # kubectl --server ${{ secrets.KOMPOSE_SERVER }}
     - name: Deploy to Kubernetes
       run: |
-        kubectl version --client
         kubectl get pods
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
