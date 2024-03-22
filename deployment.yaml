@@ -15,6 +15,6 @@ spec:
       containers:
       - name: flask-container-dn
         image: torbthemagni/flask-actions-project
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
-      restartPolicy: Always
